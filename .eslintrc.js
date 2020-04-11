@@ -12,9 +12,11 @@ module.exports = {
     'plugin:nuxt/recommended'
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    'only-warn'
   ],
   // add your custom rules here
   rules: {
+    'max-len': ['warn', { 'code': 120 }]
   }
 }
