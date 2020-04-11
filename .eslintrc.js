@@ -11,12 +11,9 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended'
   ],
-  plugins: [
-    'prettier',
-    'only-warn'
-  ],
+  plugins: ['prettier', 'only-warn'],
   // add your custom rules here
   rules: {
-    'max-len': ['warn', { 'code': 120 }]
+    'max-len': ['warn', { code: 120 }]
   }
 }
