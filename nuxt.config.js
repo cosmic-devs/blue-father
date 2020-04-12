@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/v-focus-trap.directive', '~/plugins/v-on-escape.directive', '~/plugins/v-blur.directive'],
   /*
    ** Nuxt.js dev-modules
    */
