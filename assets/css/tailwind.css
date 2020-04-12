@@ -3,4 +3,4 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-@import 'hover.css';
+@import './hover.css';
