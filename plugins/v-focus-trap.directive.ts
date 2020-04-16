@@ -1,15 +1,24 @@
-import Vue from 'vue'
+import Vue, { DirectiveOptions } from 'vue'
 
-/* use:
-<component v-on-escape="closeMethodOnComponent">
-*/
-// Remember to remove out-line styling from component,
-// since it becomes focused when this directive is inserted
+/**
+ * Use:
+ * <component v-focus-trap>
+ *
+ * Remember to remove out-line styling from component,
+ * since it becomes focused when this directive is inserted
+ */
 
-const focusTrap = {
-  retainFocus(event) {
+interface FocusTrap extends DirectiveOptions {
+  el: HTMLElement | null
+  retainFocus(event: KeyboardEvent): void
+}
+
+const focusTrap: FocusTrap = {
+  el: null,
+  retainFocus: (event) => {
     let key = ''
 
+    if (!focusTrap.el) return
     const focusable = focusTrap.el.querySelectorAll(
       'button:not([disabled]), [href], iframe, video, input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])'
     )
@@ -31,7 +40,8 @@ const focusTrap = {
     }
 
     // if not first or last or radio group, exit early
-    if (event.target !== first && event.target !== last && event.target.name !== lastRadioGroupName) {
+    // @ts-ignore event.target.name not recognized
+    if (event.target && event.target !== first && event.target !== last && event.target.name !== lastRadioGroupName) {
       return
     }
 
@@ -48,14 +58,15 @@ const focusTrap = {
     if (event.target === first && key === 'shift-tab') {
       event.preventDefault()
       last.focus()
-    } else if ((event.target === last || event.target.name === lastRadioGroupName) && key === 'tab') {
+      // @ts-ignore event.target.name not recognized
+    } else if (event.target && (event.target === last || event.target.name === lastRadioGroupName) && key === 'tab') {
       // If you are on the last radio grouping or last focusable element, return to first element
       event.preventDefault()
       first.focus()
     }
   },
   inserted(el) {
-    el.tabIndex = '-1'
+    el.tabIndex = -1
     focusTrap.el = el
     el.addEventListener('keydown', focusTrap.retainFocus)
     el.focus()

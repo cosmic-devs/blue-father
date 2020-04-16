@@ -1,19 +1,32 @@
-import Vue from 'vue'
+import Vue, { DirectiveOptions } from 'vue'
 
-/* use:
-<component v-blur="true">
-or
-<component v-blur="blurConfig: {
-            isBlurred: false,
-            opacity: 0.3,
-            filter: 'blur(1.2px)',
-            transition: 'all .3s linear'
-          }">
-*/
+/**
+ * Use:
+ * <component v-blur="true">
+ * or
+ * <component v-blur="blurConfig: {
+ *            isBlurred: false,
+ *            opacity: '0.3',
+ *            filter: 'blur(1.2px)',
+ *            transition: 'all .3s linear'
+ *          }">
+ */
 
-const blurConfig = {
+interface BlurConfig extends DirectiveOptions {
+  options: BlurOptions
+  blur(el: HTMLElement, bindingValue: boolean | BlurOptions): void
+}
+
+interface BlurOptions {
+  isBlurred: boolean
+  opacity?: any
+  filter?: any
+  transition?: any
+}
+
+const blurConfig: BlurConfig = {
   options: Object.assign({
-    opacity: 0.8,
+    opacity: 1,
     filter: 'blur(.06rem)',
     transition: 'all .5s linear'
   }),
@@ -48,5 +61,4 @@ const blurConfig = {
   }
 }
 
-// v-blur
 Vue.directive('blur', blurConfig)
