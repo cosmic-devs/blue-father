@@ -3,4 +3,60 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-@import 'hover.css';
+@import './hover.css';
+
+.theme-light {
+  --color-bg-primary: #475ab4;
+  --color-bg-secondary: #6f72b9;
+  --color-bg-default: #fff;
+  --color-bg-inverse: #5255ac;
+
+  --color-text-primary: #fff;
+  --color-text-secondary: #44467b;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #fff;
+  --color-text-inverse-soft: rgba(255, 255, 255, 0.9);
+}
+
+.theme-dark {
+  --color-bg-primary: #409367;
+  --color-bg-secondary: #6f72b9;
+  --color-bg-default: #fff;
+  --color-bg-inverse: #5255ac;
+
+  --color-text-primary: #fff;
+  --color-text-secondary: #44467b;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #fff;
+  --color-text-inverse-soft: rgba(255, 255, 255, 0.7);
+}
+
+.bg-light {
+  background: #4156ce;
+  background: -moz-linear-gradient(-45deg, #4156ce 0%, #2a96a4 60%, #35bfd0 100%);
+  background: -webkit-linear-gradient(-45deg, #4156ce 0%, #2a96a4 60%, #35bfd0 100%);
+  background: linear-gradient(135deg, #4156ce 0%, #2a96a4 60%, #35bfd0 100%);
+}
+
+.bg-dark {
+  background: #313D4F;
+  background: -moz-linear-gradient(-45deg, #313D4F 0%, #123d44 60%, #313D4F 100%);
+  background: -webkit-linear-gradient(-45deg, #313D4F 0%, #123d44 60%, #313D4F 100%);
+  background: linear-gradient(135deg, #313D4F 0%, #123d44 60%, #313D4F 100%);
+  @apply absolute inset-0 transition-opacity duration-500 ease-out;
+}
+
+.bg-primary,
+.bg-secondary,
+.bg-default,
+.bg-inverse,
+.text-primary,
+.text-secondary,
+.text-default,
+.text-default-soft,
+.text-inverse,
+.text-inverse-soft {
+  @apply transition-colors duration-500 ease-out;
+}

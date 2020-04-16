@@ -27,14 +27,20 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/v-focus-trap.directive.ts',
+    '~/plugins/v-on-escape.directive.ts',
+    '~/plugins/v-blur.directive.ts',
+    '~/plugins/vuex-persist.client.ts'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/localforage'
   ],
   /*
    ** Nuxt.js modules
@@ -44,7 +50,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'cookie-universal-nuxt'
   ],
   /*
    ** Axios module configuration
@@ -60,7 +67,6 @@ export default {
      */
     extend(config, ctx) {},
     parallel: true,
-    cache: true,
-    hardSource: true
+    cache: true
   }
 }
