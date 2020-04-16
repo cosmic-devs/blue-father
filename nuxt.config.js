@@ -31,6 +31,7 @@ export default {
     '~/plugins/v-focus-trap.directive.ts',
     '~/plugins/v-on-escape.directive.ts',
     '~/plugins/v-blur.directive.ts',
+    '~/plugins/vuex-persist.client.ts'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -38,7 +39,8 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/localforage'
   ],
   /*
    ** Nuxt.js modules
@@ -48,7 +50,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'cookie-universal-nuxt'
   ],
   /*
    ** Axios module configuration
