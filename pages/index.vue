@@ -6,15 +6,23 @@
         blue-father
       </h1>
       <h2 class="mb-5 text-inverse-soft">
-        Online study space for Urantia book readers.
+        {{ $t('header.description') }}
       </h2>
       <button
         type="button"
         class="px-4 py-2 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline"
         @click="switchTheme"
       >
-        switch theme
+        {{ $t('header.button') }}
       </button>
+      <n-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)"
+        class="px-4 py-2 mx-1 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline"
+      >
+        {{ locale.name }}
+      </n-link>
     </div>
   </div>
 </template>
@@ -27,6 +35,11 @@ const app = namespace('app')
 @Component({ components: { Logo } })
 export default class PageIndex extends Vue {
   @app.Mutation switchTheme!: Function
+
+  get availableLocales() {
+    if (!this.$i18n.locales) return []
+    return this.$i18n.locales.filter((i: any) => i.code !== this.$i18n.locale)
+  }
 }
 </script>
 

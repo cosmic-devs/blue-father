@@ -51,13 +51,31 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    'nuxt-i18n'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en-US.ts', name: 'English' },
+      { code: 'es', iso: 'es-ES', file: 'es-ES.ts', name: 'Español' },
+      { code: 'pt', iso: 'pt-BR', file: 'pt-BR.ts', name: 'Português' }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      alwaysRedirect: true
+    },
+    vuex: false,
+    // SEO Must be Implemented inside head method of each layout
+    seo: false
+  },
   /*
    ** Build configuration
    */

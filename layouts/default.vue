@@ -10,7 +10,13 @@
 import { Vue, Component, namespace } from 'nuxt-property-decorator'
 const app = namespace('app')
 
-@Component({ name: 'LayoutDefault', middleware: 'loader' })
+@Component({
+  name: 'LayoutDefault',
+  middleware: 'loader',
+  head() {
+    return this.$nuxtI18nSeo()
+  }
+})
 export default class extends Vue {
   @app.Getter theme!: string
 }
