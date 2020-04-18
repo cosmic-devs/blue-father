@@ -24,7 +24,7 @@ import { Vue, Component, namespace } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
 const app = namespace('app')
 
-@Component({ components: { Logo }, loading: false })
+@Component({ components: { Logo } })
 export default class PageIndex extends Vue {
   @app.Mutation switchTheme!: Function
 }
