@@ -10,7 +10,7 @@
       </h2>
       <button
         type="button"
-        class="px-4 py-2 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline"
+        class="px-4 py-2 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline hvr-float-shadow"
         @click="switchTheme"
       >
         {{ $t('header.button') }}
@@ -19,7 +19,8 @@
         v-for="locale in availableLocales"
         :key="locale.code"
         :to="switchLocalePath(locale.code)"
-        class="px-4 py-2 mx-1 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline"
+        type="button"
+        class="px-4 py-2 mx-1 rounded bg-primary focus:outline-none text-inverse-soft focus:shadow-outline hvr-float-shadow"
       >
         {{ locale.name }}
       </n-link>
@@ -46,5 +47,9 @@ export default class PageIndex extends Vue {
 <style>
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
+}
+
+.hvr-float-shadow {
+  @apply transition duration-300;
 }
 </style>
