@@ -34,6 +34,7 @@
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-only-warn": "^1.0.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "hover.css": "^2.3.2",
     "prettier": "^1.19.1",
     "vuex-module-decorators": "^0.16.1"
   }
