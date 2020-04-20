@@ -5,6 +5,7 @@
 @import 'tailwindcss/utilities';
 @import './hover.css';
 
+/* purgecss start ignore */
 .theme-light {
   --color-bg-primary: #475ab4;
   --color-bg-secondary: #6f72b9;
@@ -32,6 +33,7 @@
   --color-text-inverse: #fff;
   --color-text-inverse-soft: rgba(255, 255, 255, 0.7);
 }
+/* purgecss end ignore */
 
 .bg-light {
   background: #4156ce;
