@@ -31,7 +31,8 @@ export default {
     '~/plugins/v-focus-trap.directive.ts',
     '~/plugins/v-on-escape.directive.ts',
     '~/plugins/v-blur.directive.ts',
-    '~/plugins/vuex-persist.client.ts'
+    '~/plugins/vuex-persist.client.ts',
+    '~/plugins/cookie-universal-accessor.ts'
   ],
   /*
    ** Nuxt.js dev-modules

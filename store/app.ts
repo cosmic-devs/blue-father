@@ -1,6 +1,5 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
-// @ts-ignore
-import Cookies from 'js-cookie'
+import { $cookies, defaultOptions } from '~/utils/cookies-universal-initializer'
 
 @Module({
   name: 'app',
@@ -18,7 +17,7 @@ export default class App extends VuexModule {
 
   @Mutation switchTheme() {
     this.settings.theme = this.settings.theme === 'light' ? 'dark' : 'light'
-    Cookies.set('settings', this.settings, { expires: 365 })
+    $cookies.set('settings', this.settings, defaultOptions)
   }
 
   get theme(): string {
