@@ -1,4 +1,6 @@
-export default {
+import { Configuration } from '@nuxt/types'
+
+const config: Configuration = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -31,7 +33,8 @@ export default {
     '~/plugins/v-focus-trap.directive.ts',
     '~/plugins/v-on-escape.directive.ts',
     '~/plugins/v-blur.directive.ts',
-    '~/plugins/vuex-persist.client.ts'
+    '~/plugins/vuex-persist.client.ts',
+    '~/plugins/cookie-universal-accessor.ts'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -85,6 +88,9 @@ export default {
      */
     extend(config, ctx) {},
     parallel: true,
-    cache: true
+    cache: true,
+    hardSource: true
   }
 }
+
+export default config
