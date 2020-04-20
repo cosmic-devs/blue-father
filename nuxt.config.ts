@@ -88,7 +88,8 @@ const config: Configuration = {
      */
     extend(config, ctx) {},
     parallel: true,
-    cache: true
+    cache: true,
+    hardSource: true
   }
 }
 
