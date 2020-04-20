@@ -57,6 +57,9 @@ const config: Configuration = {
     'cookie-universal-nuxt',
     'nuxt-i18n'
   ],
+  purgeCSS: {
+    keyframes: true
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
